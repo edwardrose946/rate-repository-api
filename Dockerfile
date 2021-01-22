@@ -15,6 +15,8 @@ CMD STR=$'PORT=5000\nGITHUB_API_URL=https://api.github.com\nGITHUB_CLIENT_ID=$CL
 
 CMD echo "$STR"> .env
 
+CMD cat .env
+
 RUN npm run build
 RUN npm run seed:run
 
