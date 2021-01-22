@@ -11,11 +11,9 @@ RUN npm install
 
 COPY . .
 
-CMD STR=$'PORT=5000\nGITHUB_API_URL=https://api.github.com\nGITHUB_CLIENT_ID=$CLIENT_ID\nGITHUB_CLIENT_SECRET=$CLIENT_SECRET\nDATABASE_FILENAME=database.sqlite\JWT_SECRET=KfqiMBKug98wpUwahcfb '
 
-CMD echo "$STR"> .env
 
-CMD cat .env
+CMD echo "PORT=5000 GITHUB_API_URL=https://api.github.com GITHUB_CLIENT_ID=$CLIENT_ID GITHUB_CLIENT_SECRET=$CLIENT_SECRET DATABASE_FILENAME=database.sqlite JWT_SECRET=KfqiMBKug98wpUwahcfb"> .env
 
 RUN npm run build
 RUN npm run seed:run
