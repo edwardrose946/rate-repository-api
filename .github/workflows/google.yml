@@ -56,8 +56,8 @@ jobs:
           --tag "gcr.io/$PROJECT_ID/$IMAGE:$GITHUB_SHA" \
           --build-arg GITHUB_SHA="$GITHUB_SHA" \
           --build-arg GITHUB_REF="$GITHUB_REF" \
-          --build-arg GITHUB_CLIENT_ID="CLIENT_ID" \
-          --build-arg GITHUB_CLIENT_SECRET="CLIENT_SECRET" \
+          --build-arg CLIENT_ID="$CLIENT_ID" \
+          --build-arg CLIENT_SECRET="$CLIENT_SECRET" \
           .
 
     # Push the Docker image to Google Container Registry
