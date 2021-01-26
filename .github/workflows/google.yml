@@ -59,6 +59,7 @@ jobs:
           --build-arg CLIENT_ID="$CLIENT_ID" \
           --build-arg CLIENT_SECRET="$CLIENT_SECRET" \
           .
+        docker images
 
     # Push the Docker image to Google Container Registry
     - name: Publish
@@ -74,7 +75,8 @@ jobs:
     # Deploy the Docker image to the GKE cluster
     - name: Deploy
       run: |-
-        kubectl get services -o wide
+        kubectl create deployment rate-repo-api --image="gcr.io/$PROJECT_ID/$IMAGE:$GITHUB_SHA"
         kubectl get pods
-        kubectl expose deployment $PROJECT_ID
+        kubectl expose deployment rate-repo-api --type=LoadBalancer --port 80 --target-port 5000
+        kubeclt get service
 
