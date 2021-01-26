@@ -75,8 +75,8 @@ jobs:
     # Deploy the Docker image to the GKE cluster
     - name: Deploy
       run: |-
-        kubectl create deployment rate-repo-api --image="gcr.io/$PROJECT_ID/$IMAGE:$GITHUB_SHA"
+        kubectl create deployment rate-repo-api:v1 --image="gcr.io/$PROJECT_ID/$IMAGE:$GITHUB_SHA"
         kubectl get pods
-        kubectl expose deployment rate-repo-api --type=LoadBalancer --port 80 --target-port 5000
+        kubectl expose deployment rate-repo-api:v1 --type=LoadBalancer --port 80 --target-port 5000
         kubectl get service
 
