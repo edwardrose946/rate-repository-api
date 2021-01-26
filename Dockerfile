@@ -15,5 +15,5 @@ RUN npm run build
 RUN npm run seed:run
 
 EXPOSE 5000
-CMD ["node", "/src/index.js"]
+CMD ["node", "./src/index.js"]
 
