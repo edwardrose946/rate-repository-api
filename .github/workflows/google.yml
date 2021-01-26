@@ -78,5 +78,5 @@ jobs:
         kubectl create deployment rate-repo-api --image="gcr.io/$PROJECT_ID/$IMAGE:$GITHUB_SHA"
         kubectl get pods
         kubectl expose deployment rate-repo-api --type=LoadBalancer --port 80 --target-port 5000
-        kubeclt get service
+        kubectl get service
 
